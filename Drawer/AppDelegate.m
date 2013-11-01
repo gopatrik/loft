@@ -10,6 +10,7 @@
 // LOFT LOFT LOFT LOFT LOFT LOFT LOFT LOFT
 
 #import "AppDelegate.h"
+#import "PanelController.h"
 
 @implementation AppDelegate {
 	NSFileManager *fileManager;
@@ -33,11 +34,14 @@
 	barMenu = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 	
 	NSBundle *bundle = [NSBundle mainBundle];
-	icon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"lofticon" ofType:@"png"]];
-	alternateIcon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"lofticonalternate" ofType:@"png"]];
+	icon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"logo1" ofType:@"png"]];
+	alternateIcon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"logo3" ofType:@"png"]];
 	[barMenu setImage:icon];
 	[barMenu setAlternateImage:alternateIcon];
 	[barMenu setMenu:statusDrawer];
+    
+   // PanelController *panel = [[PanelController alloc] initWithWindowNibName:@"PanelController"];
+ //   [panel showWindow:panel];
 }
 
 - (NSMenu*) createMenuFromFilesInDirectory:(NSString*)path {

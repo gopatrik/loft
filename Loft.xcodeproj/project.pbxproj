@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F170B2A182174CD00EF2330 /* PanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F170B28182174CD00EF2330 /* PanelController.m */; };
+		5F170B2B182174CD00EF2330 /* PanelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F170B29182174CD00EF2330 /* PanelController.xib */; };
 		5F2D1C1F181F17F10047101B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2D1C1E181F17F10047101B /* Cocoa.framework */; };
 		5F2D1C29181F17F10047101B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F2D1C27181F17F10047101B /* InfoPlist.strings */; };
 		5F2D1C2B181F17F10047101B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2D1C2A181F17F10047101B /* main.m */; };
@@ -18,8 +20,12 @@
 		5F2D1C3F181F17F10047101B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2D1C1E181F17F10047101B /* Cocoa.framework */; };
 		5F2D1C47181F17F10047101B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F2D1C45181F17F10047101B /* InfoPlist.strings */; };
 		5F2D1C49181F17F10047101B /* DrawerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2D1C48181F17F10047101B /* DrawerTests.m */; };
-		5F2D1C53181F1D6B0047101B /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F2D1C52181F1D6B0047101B /* icon.png */; };
 		5F2D1C57181F29A90047101B /* MenuFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2D1C56181F29A90047101B /* MenuFile.m */; };
+		5F5D44C71824105F0090C6DE /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5D44C41824105F0090C6DE /* logo1.png */; };
+		5F5D44C81824105F0090C6DE /* logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5D44C51824105F0090C6DE /* logo2.png */; };
+		5F5D44C91824105F0090C6DE /* logo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5D44C61824105F0090C6DE /* logo3.png */; };
+		5F5D44CC182411D20090C6DE /* logo1@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5D44CA182411D20090C6DE /* logo1@x2.png */; };
+		5F5D44CD182411D20090C6DE /* logo3@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5D44CB182411D20090C6DE /* logo3@x2.png */; };
 		5F7B386518201D8300C0DFFD /* lofticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F7B386318201D8300C0DFFD /* lofticon.png */; };
 		5F7B386618201D8300C0DFFD /* lofticonalternate.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F7B386418201D8300C0DFFD /* lofticonalternate.png */; };
 /* End PBXBuildFile section */
@@ -35,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F170B27182174CD00EF2330 /* PanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelController.h; sourceTree = "<group>"; };
+		5F170B28182174CD00EF2330 /* PanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelController.m; sourceTree = "<group>"; };
+		5F170B29182174CD00EF2330 /* PanelController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PanelController.xib; sourceTree = "<group>"; };
 		5F2D1C1B181F17F10047101B /* Loft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2D1C1E181F17F10047101B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		5F2D1C21181F17F10047101B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -54,9 +63,13 @@
 		5F2D1C44181F17F10047101B /* LoftTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LoftTests-Info.plist"; sourceTree = "<group>"; };
 		5F2D1C46181F17F10047101B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5F2D1C48181F17F10047101B /* DrawerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawerTests.m; sourceTree = "<group>"; };
-		5F2D1C52181F1D6B0047101B /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		5F2D1C55181F29A90047101B /* MenuFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuFile.h; sourceTree = "<group>"; };
 		5F2D1C56181F29A90047101B /* MenuFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuFile.m; sourceTree = "<group>"; };
+		5F5D44C41824105F0090C6DE /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo1.png; sourceTree = "<group>"; };
+		5F5D44C51824105F0090C6DE /* logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo2.png; sourceTree = "<group>"; };
+		5F5D44C61824105F0090C6DE /* logo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo3.png; sourceTree = "<group>"; };
+		5F5D44CA182411D20090C6DE /* logo1@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo1@x2.png"; sourceTree = "<group>"; };
+		5F5D44CB182411D20090C6DE /* logo3@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo3@x2.png"; sourceTree = "<group>"; };
 		5F7B386318201D8300C0DFFD /* lofticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lofticon.png; sourceTree = "<group>"; };
 		5F7B386418201D8300C0DFFD /* lofticonalternate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lofticonalternate.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,16 +137,10 @@
 		5F2D1C24181F17F10047101B /* Loft */ = {
 			isa = PBXGroup;
 			children = (
-				5F2D1C52181F1D6B0047101B /* icon.png */,
-				5F2D1C30181F17F10047101B /* AppDelegate.h */,
-				5F2D1C31181F17F10047101B /* AppDelegate.m */,
-				5F7B386318201D8300C0DFFD /* lofticon.png */,
-				5F7B386418201D8300C0DFFD /* lofticonalternate.png */,
-				5F2D1C33181F17F10047101B /* MainMenu.xib */,
+				5FA8E65818207D5200AE7BAF /* User interface */,
 				5F2D1C36181F17F10047101B /* Images.xcassets */,
 				5F2D1C25181F17F10047101B /* Supporting Files */,
-				5F2D1C55181F29A90047101B /* MenuFile.h */,
-				5F2D1C56181F29A90047101B /* MenuFile.m */,
+				5FA8E65718207CB300AE7BAF /* Controllers */,
 			);
 			name = Loft;
 			path = Drawer;
@@ -167,6 +174,51 @@
 				5F2D1C45181F17F10047101B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5FA8E65418207C5400AE7BAF /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+				5F5D44CA182411D20090C6DE /* logo1@x2.png */,
+				5F5D44CB182411D20090C6DE /* logo3@x2.png */,
+				5F5D44C41824105F0090C6DE /* logo1.png */,
+				5F5D44C51824105F0090C6DE /* logo2.png */,
+				5F5D44C61824105F0090C6DE /* logo3.png */,
+				5F7B386318201D8300C0DFFD /* lofticon.png */,
+				5F7B386418201D8300C0DFFD /* lofticonalternate.png */,
+			);
+			name = graphics;
+			sourceTree = "<group>";
+		};
+		5FA8E65718207CB300AE7BAF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5F2D1C30181F17F10047101B /* AppDelegate.h */,
+				5F2D1C31181F17F10047101B /* AppDelegate.m */,
+				5F2D1C55181F29A90047101B /* MenuFile.h */,
+				5F2D1C56181F29A90047101B /* MenuFile.m */,
+				5F170B27182174CD00EF2330 /* PanelController.h */,
+				5F170B28182174CD00EF2330 /* PanelController.m */,
+				5F170B29182174CD00EF2330 /* PanelController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		5FA8E65818207D5200AE7BAF /* User interface */ = {
+			isa = PBXGroup;
+			children = (
+				5FA8E65418207C5400AE7BAF /* graphics */,
+				5FA8E65918207D5B00AE7BAF /* XIBs */,
+			);
+			name = "User interface";
+			sourceTree = "<group>";
+		};
+		5FA8E65918207D5B00AE7BAF /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				5F2D1C33181F17F10047101B /* MainMenu.xib */,
+			);
+			name = XIBs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,11 +298,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F2D1C29181F17F10047101B /* InfoPlist.strings in Resources */,
-				5F2D1C53181F1D6B0047101B /* icon.png in Resources */,
+				5F5D44CD182411D20090C6DE /* logo3@x2.png in Resources */,
 				5F7B386618201D8300C0DFFD /* lofticonalternate.png in Resources */,
+				5F5D44CC182411D20090C6DE /* logo1@x2.png in Resources */,
 				5F2D1C37181F17F10047101B /* Images.xcassets in Resources */,
 				5F7B386518201D8300C0DFFD /* lofticon.png in Resources */,
+				5F5D44C91824105F0090C6DE /* logo3.png in Resources */,
+				5F5D44C81824105F0090C6DE /* logo2.png in Resources */,
 				5F2D1C2F181F17F10047101B /* Credits.rtf in Resources */,
+				5F170B2B182174CD00EF2330 /* PanelController.xib in Resources */,
+				5F5D44C71824105F0090C6DE /* logo1.png in Resources */,
 				5F2D1C35181F17F10047101B /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F170B2A182174CD00EF2330 /* PanelController.m in Sources */,
 				5F2D1C32181F17F10047101B /* AppDelegate.m in Sources */,
 				5F2D1C2B181F17F10047101B /* main.m in Sources */,
 				5F2D1C57181F29A90047101B /* MenuFile.m in Sources */,
