@@ -40,8 +40,18 @@
 	[barMenu setAlternateImage:alternateIcon];
 	[barMenu setMenu:statusDrawer];
     
-   // PanelController *panel = [[PanelController alloc] initWithWindowNibName:@"PanelController"];
- //   [panel showWindow:panel];
+   //
+//    fixedOriginY = screenHeight - NSRect.size.height - NSRect.origin.y
+    
+//    NSRect frame = NSMakeRect(20, 0, 200, 200);
+//    self.window  = [[NSWindow alloc] initWithContentRect:frame
+//                                                     styleMask:NSBorderlessWindowMask
+//                                                       backing:NSBackingStoreBuffered
+//                                                         defer:NO];
+//    [self.window setBackgroundColor:[NSColor whiteColor]];
+//    [self.window makeKeyAndOrderFront:NSApp];
+    
+    //
 }
 
 - (NSMenu*) createMenuFromFilesInDirectory:(NSString*)path {

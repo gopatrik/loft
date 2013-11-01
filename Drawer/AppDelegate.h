@@ -17,6 +17,7 @@
 }
 // LOFT
 // @property (assign) IBOutlet NSWindow *window;
+@property (strong, retain) NSWindow *window;
 
 - (IBAction)doSomething:(MenuFile*)item;
 

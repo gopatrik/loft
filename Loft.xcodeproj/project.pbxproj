@@ -28,6 +28,7 @@
 		5F5D44CD182411D20090C6DE /* logo3@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5D44CB182411D20090C6DE /* logo3@x2.png */; };
 		5F7B386518201D8300C0DFFD /* lofticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F7B386318201D8300C0DFFD /* lofticon.png */; };
 		5F7B386618201D8300C0DFFD /* lofticonalternate.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F7B386418201D8300C0DFFD /* lofticonalternate.png */; };
+		5FC1D368182460D5006C575B /* BarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC1D367182460D5006C575B /* BarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		5F5D44CB182411D20090C6DE /* logo3@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo3@x2.png"; sourceTree = "<group>"; };
 		5F7B386318201D8300C0DFFD /* lofticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lofticon.png; sourceTree = "<group>"; };
 		5F7B386418201D8300C0DFFD /* lofticonalternate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lofticonalternate.png; sourceTree = "<group>"; };
+		5FC1D366182460D5006C575B /* BarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarController.h; sourceTree = "<group>"; };
+		5FC1D367182460D5006C575B /* BarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +203,8 @@
 				5F170B27182174CD00EF2330 /* PanelController.h */,
 				5F170B28182174CD00EF2330 /* PanelController.m */,
 				5F170B29182174CD00EF2330 /* PanelController.xib */,
+				5FC1D366182460D5006C575B /* BarController.h */,
+				5FC1D367182460D5006C575B /* BarController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				5F170B2A182174CD00EF2330 /* PanelController.m in Sources */,
 				5F2D1C32181F17F10047101B /* AppDelegate.m in Sources */,
 				5F2D1C2B181F17F10047101B /* main.m in Sources */,
+				5FC1D368182460D5006C575B /* BarController.m in Sources */,
 				5F2D1C57181F29A90047101B /* MenuFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
