@@ -8,15 +8,18 @@
 
 #import <Cocoa/Cocoa.h>
 #import "MenuFile.h"
+#import "Bar.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
-	IBOutlet NSMenu *statusDrawer;
+	IBOutlet NSMenu *dropDown;
 	NSStatusItem *barMenu;
 	NSImage *icon;
 	NSImage *alternateIcon;
 }
 // LOFT
 // @property (assign) IBOutlet NSWindow *window;
+
+@property (nonatomic) Bar *bar;
 @property (strong, retain) NSWindow *window;
 
 - (IBAction)doSomething:(MenuFile*)item;

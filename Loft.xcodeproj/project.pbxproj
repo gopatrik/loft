@@ -19,6 +19,7 @@
 		5F2D1C47181F17F10047101B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F2D1C45181F17F10047101B /* InfoPlist.strings */; };
 		5F2D1C49181F17F10047101B /* DrawerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2D1C48181F17F10047101B /* DrawerTests.m */; };
 		5F2D1C57181F29A90047101B /* MenuFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2D1C56181F29A90047101B /* MenuFile.m */; };
+		5F3C97FF182595CE002E75D2 /* Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3C97FE182595CE002E75D2 /* Bar.m */; };
 		5F5D44C71824105F0090C6DE /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5D44C41824105F0090C6DE /* logo1.png */; };
 		5F5D44C81824105F0090C6DE /* logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5D44C51824105F0090C6DE /* logo2.png */; };
 		5F5D44C91824105F0090C6DE /* logo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5D44C61824105F0090C6DE /* logo3.png */; };
@@ -61,6 +62,8 @@
 		5F2D1C48181F17F10047101B /* DrawerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawerTests.m; sourceTree = "<group>"; };
 		5F2D1C55181F29A90047101B /* MenuFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuFile.h; sourceTree = "<group>"; };
 		5F2D1C56181F29A90047101B /* MenuFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuFile.m; sourceTree = "<group>"; };
+		5F3C97FD182595CE002E75D2 /* Bar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar.h; sourceTree = "<group>"; };
+		5F3C97FE182595CE002E75D2 /* Bar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar.m; sourceTree = "<group>"; };
 		5F5D44C41824105F0090C6DE /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo1.png; sourceTree = "<group>"; };
 		5F5D44C51824105F0090C6DE /* logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo2.png; sourceTree = "<group>"; };
 		5F5D44C61824105F0090C6DE /* logo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo3.png; sourceTree = "<group>"; };
@@ -197,6 +200,8 @@
 				5F2D1C56181F29A90047101B /* MenuFile.m */,
 				5FC1D36C18246A08006C575B /* BashCaptain.h */,
 				5FC1D36D18246A08006C575B /* BashCaptain.m */,
+				5F3C97FD182595CE002E75D2 /* Bar.h */,
+				5F3C97FE182595CE002E75D2 /* Bar.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 			files = (
 				5F2D1C32181F17F10047101B /* AppDelegate.m in Sources */,
 				5F2D1C2B181F17F10047101B /* main.m in Sources */,
+				5F3C97FF182595CE002E75D2 /* Bar.m in Sources */,
 				5FC1D36E18246A08006C575B /* BashCaptain.m in Sources */,
 				5F2D1C57181F29A90047101B /* MenuFile.m in Sources */,
 			);

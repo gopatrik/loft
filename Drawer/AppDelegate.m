@@ -11,50 +11,47 @@
 
 #import "AppDelegate.h"
 #import "BashCaptain.h"
+#import "Bar.h"
 
 @implementation AppDelegate {
 	NSFileManager *fileManager;
+    BashCaptain *commander;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	// Insert code here to initialize your application
+    
+    //install the custom quit event handler
+//    NSAppleEventManager* appleEventManager = [NSAppleEventManager sharedAppleEventManager];
+//    [appleEventManager setEventHandler:self andSelector:@selector(handleQuitEvent:withReplyEvent:) forEventClass:kCoreEventClass andEventID:kAEQuitApplication];
+    
+    fileManager = [NSFileManager defaultManager];
+	NSString *desktopPath = [[@"/Users/" stringByAppendingString:NSUserName()] stringByAppendingString:@"/Desktop"];
+    
+	dropDown = [self createMenuFromFilesInDirectory:desktopPath];
+    
+    // add menu segment
+    [dropDown addItem:[NSMenuItem separatorItem]];
+    [self addSettings:dropDown];
+    
+    
+    [self setBar: [[Bar alloc] initWithMenu:dropDown]];
+    
+    commander = [[BashCaptain alloc] init];
+    [commander setFilesOnDesktop:false];
 }
 
+//handler for the quit apple event
+//- (void)handleQuitEvent:(NSAppleEventDescriptor*)event withReplyEvent:(NSAppleEventDescriptor*)replyEvent
+//{
+//    NSLog(@"quitting");
+//    [commander setFilesOnDesktop:true];
+//    [NSApp terminate:self];
+//}
+
 - (void)awakeFromNib {
-	
-	fileManager = [NSFileManager defaultManager];
-	NSString *desktopPath = [[@"/Users/" stringByAppendingString:NSUserName()] stringByAppendingString:@"/Desktop"];
-
-
-	statusDrawer = [self createMenuFromFilesInDirectory:desktopPath];
-	
-	NSLog(@"%@", statusDrawer);
-	
-	barMenu = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-	
-	NSBundle *bundle = [NSBundle mainBundle];
-	icon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"logo1" ofType:@"png"]];
-	alternateIcon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"logo3" ofType:@"png"]];
-	[barMenu setImage:icon];
-	[barMenu setAlternateImage:alternateIcon];
-	[barMenu setMenu:statusDrawer];
-    
-   //
-//    fixedOriginY = screenHeight - NSRect.size.height - NSRect.origin.y
-    
-//    NSRect frame = NSMakeRect(20, 0, 200, 200);
-//    self.window  = [[NSWindow alloc] initWithContentRect:frame
-//                                                     styleMask:NSBorderlessWindowMask
-//                                                       backing:NSBackingStoreBuffered
-//                                                         defer:NO];
-//    [self.window setBackgroundColor:[NSColor whiteColor]];
-//    [self.window makeKeyAndOrderFront:NSApp];
-    
     //
-    BashCaptain *commander = [[BashCaptain alloc] init];
-    [commander setFilesOnDesktop:false];
-    
 }
 
 - (NSMenu*) createMenuFromFilesInDirectory:(NSString*)path {
@@ -65,7 +62,6 @@
 		if(![file hasPrefix:@"."]){
 			MenuFile *aFile = [[MenuFile alloc] init];
 			[aFile setTitle:file];
-			[menu addItem:aFile];
 			[aFile setAction:@selector(doSomething:)];
 			[aFile setTarget:self];
 			[aFile setPath: [[path stringByAppendingString:@"/"] stringByAppendingString:file]];
@@ -74,10 +70,27 @@
 				NSMenu *submenu = [self createMenuFromFilesInDirectory:aFile.path];
 				[aFile setSubmenu:submenu];
 			}
+            
+            [menu addItem:aFile];
 		}
 	}
 
 	return menu;
+}
+
+- (void) addSettings:(NSMenu*)menu {
+    NSMenuItem *quit = [[NSMenuItem alloc] init];
+    [quit setTitle:@"Quit"];
+    [quit setAction:@selector(quitApp:)];
+    
+    [quit setTarget:self];
+    [menu addItem:quit];
+}
+
+- (IBAction)quitApp:(id)sender {
+    NSLog(@"quit");
+    [commander setFilesOnDesktop:true];
+    [NSApp terminate:self];
 }
 
 - (IBAction)doSomething:(MenuFile*)item{
@@ -85,8 +98,8 @@
 	[[NSWorkspace sharedWorkspace] openFile:item.path];
 }
 
+
 // todo
-// Hide dock icon
 // Make icon
 // file images
 // display mode, small icons, large icons, no icons.
