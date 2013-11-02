@@ -1,5 +1,5 @@
 //
-//  BarController.h
+//  SubMenu.h
 //  Loft
 //
 //  Created by Patrik Göthe on 01/11/13.
@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface BarController : NSStatusItem
+@interface SubMenu : NSMenu
 
 @end

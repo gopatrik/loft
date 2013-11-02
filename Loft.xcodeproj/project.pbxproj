@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F170B2A182174CD00EF2330 /* PanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F170B28182174CD00EF2330 /* PanelController.m */; };
-		5F170B2B182174CD00EF2330 /* PanelController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F170B29182174CD00EF2330 /* PanelController.xib */; };
 		5F2D1C1F181F17F10047101B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2D1C1E181F17F10047101B /* Cocoa.framework */; };
 		5F2D1C29181F17F10047101B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F2D1C27181F17F10047101B /* InfoPlist.strings */; };
 		5F2D1C2B181F17F10047101B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2D1C2A181F17F10047101B /* main.m */; };
@@ -28,7 +26,7 @@
 		5F5D44CD182411D20090C6DE /* logo3@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5D44CB182411D20090C6DE /* logo3@x2.png */; };
 		5F7B386518201D8300C0DFFD /* lofticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F7B386318201D8300C0DFFD /* lofticon.png */; };
 		5F7B386618201D8300C0DFFD /* lofticonalternate.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F7B386418201D8300C0DFFD /* lofticonalternate.png */; };
-		5FC1D368182460D5006C575B /* BarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC1D367182460D5006C575B /* BarController.m */; };
+		5FC1D36E18246A08006C575B /* BashCaptain.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC1D36D18246A08006C575B /* BashCaptain.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,9 +40,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5F170B27182174CD00EF2330 /* PanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelController.h; sourceTree = "<group>"; };
-		5F170B28182174CD00EF2330 /* PanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelController.m; sourceTree = "<group>"; };
-		5F170B29182174CD00EF2330 /* PanelController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PanelController.xib; sourceTree = "<group>"; };
 		5F2D1C1B181F17F10047101B /* Loft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2D1C1E181F17F10047101B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		5F2D1C21181F17F10047101B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -73,8 +68,8 @@
 		5F5D44CB182411D20090C6DE /* logo3@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo3@x2.png"; sourceTree = "<group>"; };
 		5F7B386318201D8300C0DFFD /* lofticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lofticon.png; sourceTree = "<group>"; };
 		5F7B386418201D8300C0DFFD /* lofticonalternate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lofticonalternate.png; sourceTree = "<group>"; };
-		5FC1D366182460D5006C575B /* BarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarController.h; sourceTree = "<group>"; };
-		5FC1D367182460D5006C575B /* BarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarController.m; sourceTree = "<group>"; };
+		5FC1D36C18246A08006C575B /* BashCaptain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BashCaptain.h; sourceTree = "<group>"; };
+		5FC1D36D18246A08006C575B /* BashCaptain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BashCaptain.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,11 +195,8 @@
 				5F2D1C31181F17F10047101B /* AppDelegate.m */,
 				5F2D1C55181F29A90047101B /* MenuFile.h */,
 				5F2D1C56181F29A90047101B /* MenuFile.m */,
-				5F170B27182174CD00EF2330 /* PanelController.h */,
-				5F170B28182174CD00EF2330 /* PanelController.m */,
-				5F170B29182174CD00EF2330 /* PanelController.xib */,
-				5FC1D366182460D5006C575B /* BarController.h */,
-				5FC1D367182460D5006C575B /* BarController.m */,
+				5FC1D36C18246A08006C575B /* BashCaptain.h */,
+				5FC1D36D18246A08006C575B /* BashCaptain.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -311,7 +303,6 @@
 				5F5D44C91824105F0090C6DE /* logo3.png in Resources */,
 				5F5D44C81824105F0090C6DE /* logo2.png in Resources */,
 				5F2D1C2F181F17F10047101B /* Credits.rtf in Resources */,
-				5F170B2B182174CD00EF2330 /* PanelController.xib in Resources */,
 				5F5D44C71824105F0090C6DE /* logo1.png in Resources */,
 				5F2D1C35181F17F10047101B /* MainMenu.xib in Resources */,
 			);
@@ -332,10 +323,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F170B2A182174CD00EF2330 /* PanelController.m in Sources */,
 				5F2D1C32181F17F10047101B /* AppDelegate.m in Sources */,
 				5F2D1C2B181F17F10047101B /* main.m in Sources */,
-				5FC1D368182460D5006C575B /* BarController.m in Sources */,
+				5FC1D36E18246A08006C575B /* BashCaptain.m in Sources */,
 				5F2D1C57181F29A90047101B /* MenuFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

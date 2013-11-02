@@ -1,13 +1,13 @@
 //
-//  BarController.m
+//  SubMenu.m
 //  Loft
 //
 //  Created by Patrik Göthe on 01/11/13.
 //  Copyright (c) 2013 Patrik Göthe. All rights reserved.
 //
 
-#import "BarController.h"
+#import "SubMenu.h"
 
-@implementation BarController
+@implementation SubMenu
 
 @end

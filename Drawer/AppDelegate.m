@@ -10,7 +10,7 @@
 // LOFT LOFT LOFT LOFT LOFT LOFT LOFT LOFT
 
 #import "AppDelegate.h"
-#import "PanelController.h"
+#import "BashCaptain.h"
 
 @implementation AppDelegate {
 	NSFileManager *fileManager;
@@ -52,6 +52,9 @@
 //    [self.window makeKeyAndOrderFront:NSApp];
     
     //
+    BashCaptain *commander = [[BashCaptain alloc] init];
+    [commander setFilesOnDesktop:false];
+    
 }
 
 - (NSMenu*) createMenuFromFilesInDirectory:(NSString*)path {
