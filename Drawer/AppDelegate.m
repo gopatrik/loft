@@ -32,7 +32,6 @@
 	dropDown = [self createMenuFromFilesInDirectory:desktopPath];
     
     // add menu segment
-    [dropDown addItem:[NSMenuItem separatorItem]];
     [self addSettings:dropDown];
     
     
@@ -58,18 +57,29 @@
 	NSMenu *menu = [[NSMenu alloc] init];
 	NSArray *filesOnPath = [fileManager contentsOfDirectoryAtPath:path error:nil];
 	
+    int index = 1;
 	for (NSString *file in filesOnPath) {
 		if(![file hasPrefix:@"."]){
 			MenuFile *aFile = [[MenuFile alloc] init];
-			[aFile setTitle:file];
+            NSString *fileType = [file pathExtension];
+            if([file length] > 20){
+                [aFile setTitle: [[file substringWithRange:NSMakeRange(0, 14)] stringByAppendingString:[NSString stringWithFormat: @"[...].%@", ([fileType length] > 3) ? [fileType substringWithRange:NSMakeRange(0, 3)] : fileType]]];
+            }else{
+                [aFile setTitle:file];
+            }
+
 			[aFile setAction:@selector(doSomething:)];
 			[aFile setTarget:self];
 			[aFile setPath: [[path stringByAppendingString:@"/"] stringByAppendingString:file]];
+            [aFile setKeyEquivalent: [NSString stringWithFormat:@"%d", index]];
+            [aFile setImage: [[NSWorkspace sharedWorkspace] iconForFileType:fileType]];
 			
 			if([aFile isDirectory]){
 				NSMenu *submenu = [self createMenuFromFilesInDirectory:aFile.path];
 				[aFile setSubmenu:submenu];
 			}
+            
+            index++;
             
             [menu addItem:aFile];
 		}
@@ -79,11 +89,23 @@
 }
 
 - (void) addSettings:(NSMenu*)menu {
+    // Make the lovely line
+    [menu addItem:[NSMenuItem separatorItem]];
+    
+    // Quit
     NSMenuItem *quit = [[NSMenuItem alloc] init];
     [quit setTitle:@"Quit"];
     [quit setAction:@selector(quitApp:)];
-    
     [quit setTarget:self];
+    
+    // Trash all
+    NSMenuItem *trashAll = [[NSMenuItem alloc] init];
+    [trashAll setTitle:@"Trash all files"];
+    [trashAll setAction:@selector(trashAllFiles:)];
+    
+    
+    // order of addition matters
+    [menu addItem:trashAll];
     [menu addItem:quit];
 }
 
@@ -96,6 +118,14 @@
 - (IBAction)doSomething:(MenuFile*)item{
 	NSLog(@"%@", item.path);
 	[[NSWorkspace sharedWorkspace] openFile:item.path];
+}
+
+- (IBAction)trashAllFiles:(id)sender{
+    //
+}
+
+- (IBAction)ShowFiles:(id)sender{
+    //
 }
 
 
