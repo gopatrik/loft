@@ -27,7 +27,7 @@
 		5FB1327E1826621F006CF0CF /* logo5bb@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FB1327C1826621F006CF0CF /* logo5bb@x2.png */; };
 		5FB19F3618677A900064DB45 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB19F3518677A900064DB45 /* CoreServices.framework */; };
 		5FC1D36E18246A08006C575B /* BashCaptain.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC1D36D18246A08006C575B /* BashCaptain.m */; };
-		5FE7184A189EA05800E51D87 /* MenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE71849189EA05800E51D87 /* MenuItemView.m */; };
+		5FE7184A189EA05800E51D87 /* MenuItemImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE71849189EA05800E51D87 /* MenuItemImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,8 +85,8 @@
 		5FB19F3518677A900064DB45 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		5FC1D36C18246A08006C575B /* BashCaptain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BashCaptain.h; sourceTree = "<group>"; };
 		5FC1D36D18246A08006C575B /* BashCaptain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BashCaptain.m; sourceTree = "<group>"; };
-		5FE71848189EA05800E51D87 /* MenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemView.h; sourceTree = "<group>"; };
-		5FE71849189EA05800E51D87 /* MenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemView.m; sourceTree = "<group>"; };
+		5FE71848189EA05800E51D87 /* MenuItemImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemImageView.h; sourceTree = "<group>"; };
+		5FE71849189EA05800E51D87 /* MenuItemImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,14 +210,14 @@
 			children = (
 				5F2D1C30181F17F10047101B /* AppDelegate.h */,
 				5F2D1C31181F17F10047101B /* AppDelegate.m */,
-				5F2D1C55181F29A90047101B /* MenuFile.h */,
-				5F2D1C56181F29A90047101B /* MenuFile.m */,
 				5FC1D36C18246A08006C575B /* BashCaptain.h */,
 				5FC1D36D18246A08006C575B /* BashCaptain.m */,
 				5F3C97FD182595CE002E75D2 /* Bar.h */,
 				5F3C97FE182595CE002E75D2 /* Bar.m */,
 				5F153118189DB04400501F38 /* FileController.h */,
 				5F153119189DB04400501F38 /* FileController.m */,
+				5F2D1C55181F29A90047101B /* MenuFile.h */,
+				5F2D1C56181F29A90047101B /* MenuFile.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -242,8 +242,8 @@
 		5FE71847189EA03E00E51D87 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5FE71848189EA05800E51D87 /* MenuItemView.h */,
-				5FE71849189EA05800E51D87 /* MenuItemView.m */,
+				5FE71848189EA05800E51D87 /* MenuItemImageView.h */,
+				5FE71849189EA05800E51D87 /* MenuItemImageView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -353,7 +353,7 @@
 			files = (
 				5F2D1C32181F17F10047101B /* AppDelegate.m in Sources */,
 				5F15311A189DB04400501F38 /* FileController.m in Sources */,
-				5FE7184A189EA05800E51D87 /* MenuItemView.m in Sources */,
+				5FE7184A189EA05800E51D87 /* MenuItemImageView.m in Sources */,
 				5F2D1C2B181F17F10047101B /* main.m in Sources */,
 				5F3C97FF182595CE002E75D2 /* Bar.m in Sources */,
 				5FC1D36E18246A08006C575B /* BashCaptain.m in Sources */,

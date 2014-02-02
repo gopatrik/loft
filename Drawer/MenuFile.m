@@ -29,9 +29,11 @@
 			title = [self getTitleFromPath:url];
 		}
 		
-//		MenuItemView *itemView = [[MenuItemView alloc]init];
-//		[self setView:itemView];
-//		
+		MenuItemImageView *itemView = [[MenuItemImageView alloc]initWithTitle:title image:[self image]];
+		
+//		[itemView addObserver:self forKeyPath:<#(NSString *)#> options:<#(NSKeyValueObservingOptions)#> context:<#(void *)#>]
+		[self setView:itemView];
+		
 		[self setItemTitle:title];
 		
 		[self setToolTip:self.path.path.lastPathComponent];

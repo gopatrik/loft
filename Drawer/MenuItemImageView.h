@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface MenuItemView : NSView
+@interface MenuItemImageView : NSView
+@property NSTextField *title;
 
+- (id) initWithTitle:(NSString*)title image:(NSImage*)image;
 @end
