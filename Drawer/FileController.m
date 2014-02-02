@@ -43,30 +43,17 @@
 //	NSArray *filesOnPath = [self contentsOfDirectoryAtPath:path.path error:nil];
 	NSArray *filesOnPath = [self contentsOfDirectoryAtURL:path includingPropertiesForKeys:nil options:NO error:nil];
 
-    int index = 1;
+   // int index = 1;
 	for (NSURL *file in filesOnPath) {
 		if(![file.path.lastPathComponent hasPrefix:@"."]){
-			MenuFile *aFile = [[MenuFile alloc] init];
-			[aFile setItemTitle:[self getTitleFromPath:file]];
-			[aFile setAction:@selector(open)];
-			[aFile setTarget:aFile];
-			[aFile setPath:file];
-            [aFile setKeyEquivalent: [NSString stringWithFormat:@"%d", index]];
-			
-			if ([aFile hasImage]) {
-				NSImage *fileimg = [[NSImage alloc] initWithContentsOfURL:file];
-				[fileimg setSize:NSMakeSize(40, 40)];
-				[aFile setImage: fileimg];
-			}else{
-				[aFile setImage: [[NSWorkspace sharedWorkspace] iconForFile:[aFile path].path]];
-			}
+			MenuFile *aFile = [[MenuFile alloc] initWithUrl:file];
+            //[aFile setKeyEquivalent: [NSString stringWithFormat:@"%d", index]];
 			
 			if([aFile isDirectory]){
 				NSMenu *submenu = [self createMenuFromFilesInDirectory:aFile.path];
 				[aFile setSubmenu:submenu];
 			}
-            
-            index++;
+//            index++;
             
             [menu addItem:aFile];
 		}

@@ -13,8 +13,30 @@
 - (id) initWithUrl:(NSURL *)url {
 	self = [super init];
     if (self) {
-        
+
+		[self setAction:@selector(open)];
+		[self setTarget:self];
+		[self setPath:url];
+		NSString * title;
+		if ([self hasImage]) {
+			NSImage *fileimg = [[NSImage alloc] initWithContentsOfURL:url];
+			
+			[self scaleImage:fileimg toFitWitdth:150];
+			[self setImage: fileimg];
+			title = @"";
+		}else{
+			[self setImage: [[NSWorkspace sharedWorkspace] iconForFile:[self path].path]];
+			title = [self getTitleFromPath:url];
+		}
+		
+//		MenuItemView *itemView = [[MenuItemView alloc]init];
+//		[self setView:itemView];
+//		
+		[self setItemTitle:title];
+		
+		[self setToolTip:self.path.path.lastPathComponent];
     }
+
     return self;
 }
 
@@ -24,9 +46,23 @@
 	return isDirectory;
 }
 
+- (NSString*) getTitleFromPath: (NSURL*) path {
+	return 	[[path path] lastPathComponent];
+}
+
 - (IBAction)open {
 	[[NSWorkspace sharedWorkspace] openFile:self.path.path];
+}
 
+- (void) scaleImage:(NSImage*)image toFitWitdth:(CGFloat)w {
+	//CGFloat orgH = image.size.height;
+	//CGFloat orgW = image.size.width;
+	
+	[image setScalesWhenResized:YES];
+	[image setSize:NSMakeSize(w, 100)];
+	
+//	NSImageRep *scaledImage = [image bestRepresentationForRect:NSMakeRect(0, 0, w, 100) context:nil hints:nil];
+	
 }
 
 - (void) setItemTitle: (NSString*)file {

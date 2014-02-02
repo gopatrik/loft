@@ -26,8 +26,8 @@
 		5FB1327D1826621F006CF0CF /* logo5aa@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FB1327B1826621F006CF0CF /* logo5aa@x2.png */; };
 		5FB1327E1826621F006CF0CF /* logo5bb@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FB1327C1826621F006CF0CF /* logo5bb@x2.png */; };
 		5FB19F3618677A900064DB45 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB19F3518677A900064DB45 /* CoreServices.framework */; };
-		5FB19F3C1867829D0064DB45 /* CDEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB19F3B1867829D0064DB45 /* CDEvents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5FC1D36E18246A08006C575B /* BashCaptain.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC1D36D18246A08006C575B /* BashCaptain.m */; };
+		5FE7184A189EA05800E51D87 /* MenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE71849189EA05800E51D87 /* MenuItemView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +39,18 @@
 			remoteInfo = Drawer;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5FE71844189E9FA800E51D87 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5F153118189DB04400501F38 /* FileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileController.h; sourceTree = "<group>"; };
@@ -71,9 +83,10 @@
 		5FB1327B1826621F006CF0CF /* logo5aa@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo5aa@x2.png"; sourceTree = "<group>"; };
 		5FB1327C1826621F006CF0CF /* logo5bb@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo5bb@x2.png"; sourceTree = "<group>"; };
 		5FB19F3518677A900064DB45 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		5FB19F3B1867829D0064DB45 /* CDEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CDEvents.framework; sourceTree = "<group>"; };
 		5FC1D36C18246A08006C575B /* BashCaptain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BashCaptain.h; sourceTree = "<group>"; };
 		5FC1D36D18246A08006C575B /* BashCaptain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BashCaptain.m; sourceTree = "<group>"; };
+		5FE71848189EA05800E51D87 /* MenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemView.h; sourceTree = "<group>"; };
+		5FE71849189EA05800E51D87 /* MenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +94,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FB19F3C1867829D0064DB45 /* CDEvents.framework in Frameworks */,
 				5FB19F3618677A900064DB45 /* CoreServices.framework in Frameworks */,
 				5F2D1C1F181F17F10047101B /* Cocoa.framework in Frameworks */,
 			);
@@ -102,7 +114,6 @@
 		5F2D1C12181F17F10047101B = {
 			isa = PBXGroup;
 			children = (
-				5FB19F3B1867829D0064DB45 /* CDEvents.framework */,
 				5F2D1C24181F17F10047101B /* Loft */,
 				5F2D1C42181F17F10047101B /* DrawerTests */,
 				5F2D1C1D181F17F10047101B /* Frameworks */,
@@ -147,6 +158,7 @@
 				5F2D1C36181F17F10047101B /* Images.xcassets */,
 				5F2D1C25181F17F10047101B /* Supporting Files */,
 				5FA8E65718207CB300AE7BAF /* Controllers */,
+				5FE71847189EA03E00E51D87 /* Views */,
 			);
 			name = Loft;
 			path = Drawer;
@@ -227,6 +239,15 @@
 			name = XIBs;
 			sourceTree = "<group>";
 		};
+		5FE71847189EA03E00E51D87 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5FE71848189EA05800E51D87 /* MenuItemView.h */,
+				5FE71849189EA05800E51D87 /* MenuItemView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -237,6 +258,7 @@
 				5F2D1C17181F17F10047101B /* Sources */,
 				5F2D1C18181F17F10047101B /* Frameworks */,
 				5F2D1C19181F17F10047101B /* Resources */,
+				5FE71844189E9FA800E51D87 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -331,6 +353,7 @@
 			files = (
 				5F2D1C32181F17F10047101B /* AppDelegate.m in Sources */,
 				5F15311A189DB04400501F38 /* FileController.m in Sources */,
+				5FE7184A189EA05800E51D87 /* MenuItemView.m in Sources */,
 				5F2D1C2B181F17F10047101B /* main.m in Sources */,
 				5F3C97FF182595CE002E75D2 /* Bar.m in Sources */,
 				5FC1D36E18246A08006C575B /* BashCaptain.m in Sources */,
@@ -469,6 +492,7 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/CDEvents-admdwkcsllwidbgscztaoyihssqe/Build/Products/Debug",
 					/Users/Patrik/Documents/projects/apps/mac/loft,
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ArchDirectoryObserver-eywcjwhqppxiyqfotdlcysykhoaq/Build/Products/Debug",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Drawer/Loft-Prefix.pch";
@@ -487,6 +511,7 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/CDEvents-admdwkcsllwidbgscztaoyihssqe/Build/Products/Debug",
 					/Users/Patrik/Documents/projects/apps/mac/loft,
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ArchDirectoryObserver-eywcjwhqppxiyqfotdlcysykhoaq/Build/Products/Debug",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Drawer/Loft-Prefix.pch";

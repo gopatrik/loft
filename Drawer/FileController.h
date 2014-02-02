@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MenuFile.h"
+#import <ArchDirectoryObserver/ArchDirectoryObserver.h>
 
 @interface FileController : NSFileManager
 - (NSMenu*) getDesktopAsMenu;
