@@ -10,8 +10,12 @@
 
 @interface MenuFile : NSMenuItem
 
-@property (nonatomic) NSString* path;
+@property (nonatomic) NSURL* path;
 
 - (BOOL)isDirectory;
+- (IBAction)open;
+- (void) setItemTitle: (NSString*)title;
+- (BOOL) hasImage;
+- (id) initWithUrl:(NSURL*)url;
 
 @end

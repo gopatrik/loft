@@ -14,22 +14,14 @@
 #import "Bar.h"
 
 @implementation AppDelegate {
-	NSFileManager *fileManager;
     BashCaptain *commander;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	// Insert code here to initialize your application
-    
-    //install the custom quit event handler
-//    NSAppleEventManager* appleEventManager = [NSAppleEventManager sharedAppleEventManager];
-//    [appleEventManager setEventHandler:self andSelector:@selector(handleQuitEvent:withReplyEvent:) forEventClass:kCoreEventClass andEventID:kAEQuitApplication];
-    
-    fileManager = [NSFileManager defaultManager];
-	NSString *desktopPath = [[@"/Users/" stringByAppendingString:NSUserName()] stringByAppendingString:@"/Desktop"];
-    
-	dropDown = [self createMenuFromFilesInDirectory:desktopPath];
+	// create the menu
+	fc = [[FileController alloc]init];
+	dropDown = [fc getDesktopAsMenu];
     
     // add menu segment
     [self addSettings:dropDown];
@@ -51,41 +43,7 @@
 
 - (void)awakeFromNib {
     //
-}
-
-- (NSMenu*) createMenuFromFilesInDirectory:(NSString*)path {
-	NSMenu *menu = [[NSMenu alloc] init];
-	NSArray *filesOnPath = [fileManager contentsOfDirectoryAtPath:path error:nil];
-	
-    int index = 1;
-	for (NSString *file in filesOnPath) {
-		if(![file hasPrefix:@"."]){
-			MenuFile *aFile = [[MenuFile alloc] init];
-            NSString *fileType = [file pathExtension];
-            if([file length] > 20){
-                [aFile setTitle: [[file substringWithRange:NSMakeRange(0, 14)] stringByAppendingString:[NSString stringWithFormat: @"[...].%@", ([fileType length] > 3) ? [fileType substringWithRange:NSMakeRange(0, 3)] : fileType]]];
-            }else{
-                [aFile setTitle:file];
-            }
-
-			[aFile setAction:@selector(doSomething:)];
-			[aFile setTarget:self];
-			[aFile setPath: [[path stringByAppendingString:@"/"] stringByAppendingString:file]];
-            [aFile setKeyEquivalent: [NSString stringWithFormat:@"%d", index]];
-            [aFile setImage: [[NSWorkspace sharedWorkspace] iconForFileType:fileType]];
-			
-			if([aFile isDirectory]){
-				NSMenu *submenu = [self createMenuFromFilesInDirectory:aFile.path];
-				[aFile setSubmenu:submenu];
-			}
-            
-            index++;
-            
-            [menu addItem:aFile];
-		}
-	}
-
-	return menu;
+//    [self watchDesktop];
 }
 
 - (void) addSettings:(NSMenu*)menu {
@@ -103,9 +61,13 @@
     [trashAll setTitle:@"Trash all files"];
     [trashAll setAction:@selector(trashAllFiles:)];
     
-    
-    // order of addition matters
+    // ShowFiles
+    NSMenuItem *showFiles = [[NSMenuItem alloc] init];
+    [showFiles setTitle:@"Show Desktop"];
+    [showFiles setAction:@selector(showFiles:)];
+
     [menu addItem:trashAll];
+    [menu addItem:showFiles];
     [menu addItem:quit];
 }
 
@@ -115,17 +77,24 @@
     [NSApp terminate:self];
 }
 
-- (IBAction)doSomething:(MenuFile*)item{
-	NSLog(@"%@", item.path);
-	[[NSWorkspace sharedWorkspace] openFile:item.path];
-}
-
 - (IBAction)trashAllFiles:(id)sender{
-    //
+//    [[NSWorkspace sharedWorkspace] performFileOperation:NSWorkspaceRecycleOperation
+  //                                               source:[desktopPath stringByDeletingLastPathComponent]
+    //                                        destination:@""
+      //                                            files:[NSArray arrayWithObject:[desktopPath lastPathComponent]]
+        //                                            tag:nil];
 }
 
-- (IBAction)ShowFiles:(id)sender{
-    //
+- (IBAction)showFiles:(NSMenuItem*)sender{
+    [commander setFilesOnDesktop:true];
+    [sender setTitle:@"Hide Desktop"];
+    [sender setAction:@selector(hideFiles:)];
+}
+
+- (IBAction)hideFiles:(id)sender{
+    [commander setFilesOnDesktop:false];
+    [sender setTitle:@"Show Desktop"];
+    [sender setAction:@selector(showFiles:)];
 }
 
 

@@ -16,11 +16,12 @@
         self.barMenu = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
         
         NSBundle *bundle = [NSBundle mainBundle];
-        self.icon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"logo1" ofType:@"png"]];
-        self.alternateIcon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"logo3" ofType:@"png"]];
+        self.icon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"logo5aa" ofType:@"png"]];
+        self.alternateIcon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"logo5bb" ofType:@"png"]];
         [self.barMenu setImage:self.icon];
         [self.barMenu setAlternateImage:self.alternateIcon];
         [self.barMenu setMenu:menu];
+        [self.barMenu setHighlightMode:YES];
     }
     return self;
 }

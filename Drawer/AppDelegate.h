@@ -7,14 +7,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <CoreServices/CoreServices.h>
 #import "MenuFile.h"
 #import "Bar.h"
+#import "FileController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
 	IBOutlet NSMenu *dropDown;
 	NSStatusItem *barMenu;
 	NSImage *icon;
 	NSImage *alternateIcon;
+	FileController *fc;
 }
 // LOFT
 // @property (assign) IBOutlet NSWindow *window;
@@ -22,6 +25,6 @@
 @property (nonatomic) Bar *bar;
 @property (strong, retain) NSWindow *window;
 
-- (IBAction)doSomething:(MenuFile*)item;
+//- (IBAction)doSomething:(MenuFile*)item;
 
 @end

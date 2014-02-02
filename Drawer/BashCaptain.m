@@ -14,12 +14,10 @@
     task = [[NSTask alloc] init];
     [task setLaunchPath: @"/usr/bin/defaults"];
     NSString *visibility = visible ? @"true" : @"false";
-    NSArray *arguments;
-    arguments = [NSArray arrayWithObjects: @"write", @"com.apple.finder" , @"CreateDesktop", @"-bool", visibility, nil];
+    NSArray *arguments = [NSArray arrayWithObjects: @"write", @"com.apple.finder" , @"CreateDesktop", @"-bool", visibility, nil];
     [task setArguments: arguments];
     
-    NSPipe *pipe;
-    pipe = [NSPipe pipe];
+    NSPipe *pipe = [NSPipe pipe];
     [task setStandardOutput: pipe];
     
     NSFileHandle *file;
@@ -52,6 +50,8 @@
     
     NSFileHandle *file;
     file = [pipe fileHandleForReading];
+	
+//	[[NSWorkspace sharedWorkspace]iconForFile:<#(NSString *)#>];
     
     [task launch];
 }
