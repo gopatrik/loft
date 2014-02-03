@@ -13,12 +13,11 @@
 	NSImageView *imageView;
 	CGFloat mainWidth;
 	CGFloat mainHeight;
-	
 }
 
 - (id) initWithTitle:(NSString *)title image:(NSImage *)image {
-	mainWidth = 400;
-	mainHeight = 100;
+	mainWidth = 300;
+	mainHeight = 225;
 	self = [super initWithFrame:NSMakeRect(0, 0, mainWidth, mainHeight)];
     if (self) {
         // Initialization code here.
@@ -41,15 +40,16 @@
 		NSRect imageBounds = NSMakeRect(0, 0, mainWidth, mainHeight);
 		imageView = [[NSImageView alloc]initWithFrame:imageBounds];
 		[imageView setImageScaling:NSImageScaleProportionallyUpOrDown];
+		[[imageView image] setScalesWhenResized:YES];
 //		[imageView setBounds:self.bounds];
 		[imageView setImage:image];
+		
 		[self addSubview:imageView];
 		
 		[self setAcceptsTouchEvents:YES];
 		[[self window] makeFirstResponder:self];
 		
 		active = NO;
-		
     }
     return self;
 }
@@ -86,19 +86,32 @@
 
 - (void) mouseDown:(NSEvent *)theEvent {
 	active = !active;
-	NSSize newSize;
 	if(active){
-		newSize = NSMakeSize(mainWidth, mainHeight*3);
+		[self expand];
 	}else{
-		newSize = NSMakeSize(mainWidth, mainHeight);
+		[self collapse];
 	}
-	
+}
+
+- (void) expand {
+	// [self animateIntoSize: NSMakeSize(mainWidth, mainHeight*3)];
+}
+
+- (void) collapse {
+	// [self animateIntoSize: NSMakeSize(mainWidth, mainHeight)];
+}
+
+- (void) animateIntoSize: (NSSize)size {
 	[NSAnimationContext beginGrouping];
-	[[self animator] setFrameSize:newSize];
-	[[imageView animator] setFrameSize:self.frame.size];
+	[[NSAnimationContext currentContext] setDuration:0.1f];
+	[[self animator] setFrameSize:size];
+
+//	[[imageView animator] setFrameSize:size];
+
 	[NSAnimationContext endGrouping];
 	[self setNeedsDisplay:YES];
 }
+
 
 - (void)drawRect:(NSRect)dirtyRect
 {

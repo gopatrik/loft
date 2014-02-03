@@ -43,6 +43,8 @@
 //	NSArray *filesOnPath = [self contentsOfDirectoryAtPath:path.path error:nil];
 	NSArray *filesOnPath = [self contentsOfDirectoryAtURL:path includingPropertiesForKeys:nil options:NO error:nil];
 
+	NSMutableArray *directories = [[NSMutableArray alloc] init];
+	
    // int index = 1;
 	for (NSURL *file in filesOnPath) {
 		if(![file.path.lastPathComponent hasPrefix:@"."]){
@@ -52,11 +54,18 @@
 			if([aFile isDirectory]){
 				NSMenu *submenu = [self createMenuFromFilesInDirectory:aFile.path];
 				[aFile setSubmenu:submenu];
+				[directories addObject:aFile];
+			}else{
+				[menu addItem:aFile];
 			}
 //            index++;
-            
-            [menu addItem:aFile];
+
 		}
+	}
+	
+	// folders last
+	for(MenuFile *directory in directories){
+		[menu addItem:directory];
 	}
 	
 	return menu;

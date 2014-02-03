@@ -29,10 +29,13 @@
 			title = [self getTitleFromPath:url];
 		}
 		
-		MenuItemImageView *itemView = [[MenuItemImageView alloc]initWithTitle:title image:[self image]];
-		
+		if ([self hasImage]) {
+			MenuItemImageView *itemView = [[MenuItemImageView alloc]initWithTitle:title image:[self image]];
+			[self setView:itemView];
+		}
+
 //		[itemView addObserver:self forKeyPath:<#(NSString *)#> options:<#(NSKeyValueObservingOptions)#> context:<#(void *)#>]
-		[self setView:itemView];
+
 		
 		[self setItemTitle:title];
 		
