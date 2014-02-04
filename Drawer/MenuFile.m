@@ -32,6 +32,9 @@
 		if ([self hasImage]) {
 			MenuItemImageView *itemView = [[MenuItemImageView alloc]initWithTitle:title image:[self image]];
 			[self setView:itemView];
+		}else if (![self isDirectory]){
+			MenuItemFileView *fileView = [[MenuItemFileView alloc] initWithTitle:title];
+			[self setView:fileView];
 		}
 
 //		[itemView addObserver:self forKeyPath:<#(NSString *)#> options:<#(NSKeyValueObservingOptions)#> context:<#(void *)#>]

@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "MenuItemImageView.h"
+#import "MenuItemFileView.h"
 
 
 @interface MenuFile : NSMenuItem

@@ -7,6 +7,7 @@
 //
 
 #import "MenuItemImageView.h"
+#import "MenuItemBiPanelView.h"
 
 @implementation MenuItemImageView {
 	BOOL active;
@@ -16,8 +17,11 @@
 }
 
 - (id) initWithTitle:(NSString *)title image:(NSImage *)image {
-	mainWidth = 300;
-	mainHeight = 225;
+	mainWidth = 250;
+	mainHeight = mainWidth * 0.75;
+//	mainHeight = (image.size.height < mainHeight) ? image.size.height : mainHeight;
+
+	
 	self = [super initWithFrame:NSMakeRect(0, 0, mainWidth, mainHeight)];
     if (self) {
         // Initialization code here.
@@ -37,7 +41,7 @@
 		
 //		NSRect imageBounds = NSMakeRect(-50, 1, self.bounds.size.width+100, self.bounds.size.height-1);
 		
-		NSRect imageBounds = NSMakeRect(0, 0, mainWidth, mainHeight);
+		NSRect imageBounds = NSMakeRect(0, 30, mainWidth, mainHeight);
 		imageView = [[NSImageView alloc]initWithFrame:imageBounds];
 		[imageView setImageScaling:NSImageScaleProportionallyUpOrDown];
 		[[imageView image] setScalesWhenResized:YES];
@@ -48,6 +52,10 @@
 		
 		[self setAcceptsTouchEvents:YES];
 		[[self window] makeFirstResponder:self];
+		
+		// bipanel
+		MenuItemBiPanelView *bipanel = [[MenuItemBiPanelView alloc] initWithWidth:mainWidth];
+		[self addSubview:bipanel];
 		
 		active = NO;
     }
@@ -88,9 +96,22 @@
 	active = !active;
 	if(active){
 		[self expand];
+		// [imageView setImage:[self tintImage:[NSColor colorWithSRGBRed:0.8 green:0.5 blue:0.5 alpha:0.3]]];
 	}else{
 		[self collapse];
 	}
+}
+
+- (NSImage *)tintImage:(NSColor *)tint {
+    NSImage *image = [[imageView image] copy];
+    if (tint) {
+        [image lockFocus];
+        [tint set];
+        NSRect imageRect = {NSZeroPoint, [image size]};
+        NSRectFillUsingOperation(imageRect, NSCompositeSourceAtop);
+        [image unlockFocus];
+    }
+    return image;
 }
 
 - (void) expand {
@@ -117,12 +138,11 @@
 {
 	[super drawRect:dirtyRect];
 	
-	
 	NSRect bounds = [self bounds];
 //    [[NSColor colorWithSRGBRed:0.8 green:0.5 blue:0.5 alpha:1] set];
 //    [NSBezierPath fillRect:bounds];
 	
-	[[NSColor colorWithSRGBRed:0.2 green:0.2 blue:0.2 alpha:1] set];
+	[[NSColor colorWithSRGBRed:0 green:0 blue:0 alpha:0.1] set];
 	[NSBezierPath strokeRect:bounds];
 	
 	if (active) {
