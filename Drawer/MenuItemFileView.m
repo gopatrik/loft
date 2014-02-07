@@ -44,7 +44,7 @@
 
 //	[[self colorFromHexString:@"#77eedd"] set]; cyan
 	//[[self colorFromHexString:@"#884455"] set];
-	[[NSColor colorWithCalibratedRed:0.49 green:0.65 blue:0.55 alpha:1] set];
+	[[NSColor colorWithCalibratedRed:0.69 green:0.85 blue:0.75 alpha:1] set];
 	[NSBezierPath fillRect:self.bounds];
 	
 	[[NSColor whiteColor]set];

@@ -12,18 +12,14 @@
 @implementation MenuItemImageView {
 	BOOL active;
 	NSImageView *imageView;
-	CGFloat mainWidth;
-	CGFloat mainHeight;
 	MenuItemBiPanelView *biPanel;
-	NSRect originalFrame;
-	CGFloat biPanelHeight;
+	BOOL debug;
 }
 
 - (id) initWithTitle:(NSString *)title image:(NSImage *)image {
-	mainWidth = 250;
-	mainHeight = mainWidth * 0.75;
-//	mainHeight = (image.size.height < mainHeight) ? image.size.height : mainHeight;
-	originalFrame = NSMakeRect(0, 0, mainWidth, mainHeight);
+	debug = YES;
+	CGFloat mainWidth = 250;
+	NSRect originalFrame = NSMakeRect(0, 0, mainWidth, mainWidth*0.75);
 	
 	self = [super initWithFrame:originalFrame];
     if (self) {
@@ -42,7 +38,6 @@
 		
 		// biPanel
 		biPanel = [[MenuItemBiPanelView alloc] initWithWidth:mainWidth];
-		biPanelHeight =30;
 		[self addSubview:biPanel];
 //		[self collapse];
 		
@@ -67,12 +62,20 @@
 }
 
 - (void) setUpImageViewWith:(NSImage*)image{
-	NSRect imageBounds = NSMakeRect(0, 0, mainWidth, mainHeight);
+	
+	NSRect imageBounds;
+	CGFloat scale = self.bounds.size.width / image.size.width;
+	imageBounds = NSMakeRect(0, 0, image.size.width * scale, image.size.height * scale);
+	
+	
 	imageView = [[NSImageView alloc]initWithFrame:imageBounds];
+//	[imageView setFrameOrigin:NSMakePoint(imageView.frame.origin.x, imageView.frame.origin.y+10)];
 	[imageView setImageScaling:NSImageScaleProportionallyUpOrDown];
 	[[imageView image] setScalesWhenResized:YES];
 	//		[imageView setBounds:self.bounds];
 	[imageView setImage:image];
+	
+	[self setFrame:imageBounds];
 	
 	[self addSubview:imageView];
 }
@@ -126,46 +129,6 @@
     return image;
 }
 
-- (void) expand {
-	// [self animateIntoSize: NSMakeSize(mainWidth, mainHeight*3)];
-	
-	[NSAnimationContext beginGrouping];
-	[[NSAnimationContext currentContext] setDuration:0.2f];
-	
-	
-	[[self animator]setFrameSize:NSMakeSize(mainWidth, mainHeight+biPanelHeight)];
-//	[imageView setFrameOrigin:NSMakePoint(imageView.frame.origin.x, imageView.frame.origin.y+biPanelHeight)];
-	[NSAnimationContext endGrouping];
-	[self setNeedsDisplay:YES];
-//	[imageView setFrame:NSMakeRect(0, 30, mainWidth, mainHeight)];
-
-}
-
-- (void) collapse {
-
-	[imageView setFrame:NSMakeRect(0, 0, mainWidth, mainHeight)];
-	[NSAnimationContext beginGrouping];
-	[[NSAnimationContext currentContext] setDuration:0.2f];
-	
-//	[[self animator]setFrameSize:NSMakeSize(mainWidth, mainHeight-30)];
-	[[self animator]setFrame:originalFrame];
-	
-	
-	[NSAnimationContext endGrouping];
-	[self setNeedsDisplay:YES];
-}
-
-- (void) animateIntoSize: (NSSize)size {
-	[NSAnimationContext beginGrouping];
-	[[NSAnimationContext currentContext] setDuration:0.1f];
-	[[self animator] setFrameSize:size];
-
-//	[[imageView animator] setFrameSize:size];
-
-	[NSAnimationContext endGrouping];
-	[self setNeedsDisplay:YES];
-}
-
 
 - (void)drawRect:(NSRect)dirtyRect
 {
@@ -177,6 +140,13 @@
 	
 	[[NSColor colorWithSRGBRed:0 green:0 blue:0 alpha:0.1] set];
 	[NSBezierPath strokeRect:bounds];
+	
+	
+	if(debug){
+		[[NSColor blackColor] set];
+		//[NSBezierPath strokeRect:bounds];
+		[NSBezierPath fillRect:imageView.frame];
+	}
 	
 	if (active) {
 	//	[[NSColor colorWithSRGBRed:0.8 green:0.5 blue:0.5 alpha:0.3] set];

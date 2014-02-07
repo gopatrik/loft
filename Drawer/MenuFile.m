@@ -21,7 +21,7 @@
 		if ([self hasImage]) {
 			NSImage *fileimg = [[NSImage alloc] initWithContentsOfURL:url];
 			
-			[self scaleImage:fileimg toFitWitdth:150];
+			// [self scaleImage:fileimg toFitWitdth:150];
 			[self setImage: fileimg];
 			title = @"";
 		}else{
