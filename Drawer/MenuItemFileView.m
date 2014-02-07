@@ -15,15 +15,16 @@
 - (id)initWithTitle:(NSString*)title {
 	CGFloat mainWidth = 250;
 	CGFloat mainHeight = 70;
-	NSLog(@"%@", title);
     self = [super initWithFrame:NSMakeRect(0, 0, mainWidth, mainHeight)];
     if (self) {
-        textField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, mainWidth, 40)];
+        textField = [[NSTextField alloc] initWithFrame:NSMakeRect(20, 0, mainWidth, 40)];
 		[textField setBezeled:NO];
 		[textField setDrawsBackground:NO];
 		[textField setEditable:NO];
 		[textField setSelectable:NO];
 		[textField setStringValue:title];
+		[textField setFont:[NSFont fontWithName:@"helvetica bold" size:16]];
+		[textField setTextColor:[NSColor colorWithWhite:1 alpha:0.8]];
 		[self addSubview:textField];
     }
     return self;
@@ -41,7 +42,9 @@
 	[super drawRect:dirtyRect];
 	
 
-	[[self colorFromHexString:@"#88eedd"] set];
+//	[[self colorFromHexString:@"#77eedd"] set]; cyan
+	//[[self colorFromHexString:@"#884455"] set];
+	[[NSColor colorWithCalibratedRed:0.49 green:0.65 blue:0.55 alpha:1] set];
 	[NSBezierPath fillRect:self.bounds];
 	
 	[[NSColor whiteColor]set];

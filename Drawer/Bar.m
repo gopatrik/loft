@@ -13,10 +13,10 @@
 {
     self = [super init];
     if (self) {
-        self.barMenu = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+        self.barMenu = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength+40];
         
         NSBundle *bundle = [NSBundle mainBundle];
-        self.icon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"logo5aa" ofType:@"png"]];
+        self.icon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"status1" ofType:@"png"]];
         self.alternateIcon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"logo5bb" ofType:@"png"]];
         [self.barMenu setImage:self.icon];
         [self.barMenu setAlternateImage:self.alternateIcon];

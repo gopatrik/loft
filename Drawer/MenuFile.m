@@ -70,7 +70,6 @@
 	[image setSize:NSMakeSize(w, 100)];
 	
 //	NSImageRep *scaledImage = [image bestRepresentationForRect:NSMakeRect(0, 0, w, 100) context:nil hints:nil];
-	
 }
 
 - (void) setItemTitle: (NSString*)file {

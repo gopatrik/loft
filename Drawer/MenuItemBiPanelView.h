@@ -10,5 +10,5 @@
 
 @interface MenuItemBiPanelView : NSView
 - (id) initWithWidth:(CGFloat)width;
-
+- (void) setState:(BOOL)active;
 @end

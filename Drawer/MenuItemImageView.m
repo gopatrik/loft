@@ -14,48 +14,37 @@
 	NSImageView *imageView;
 	CGFloat mainWidth;
 	CGFloat mainHeight;
+	MenuItemBiPanelView *biPanel;
+	NSRect originalFrame;
+	CGFloat biPanelHeight;
 }
 
 - (id) initWithTitle:(NSString *)title image:(NSImage *)image {
 	mainWidth = 250;
 	mainHeight = mainWidth * 0.75;
 //	mainHeight = (image.size.height < mainHeight) ? image.size.height : mainHeight;
-
+	originalFrame = NSMakeRect(0, 0, mainWidth, mainHeight);
 	
-	self = [super initWithFrame:NSMakeRect(0, 0, mainWidth, mainHeight)];
+	self = [super initWithFrame:originalFrame];
     if (self) {
         // Initialization code here.
 		
 		[self setAutoresizesSubviews:NO];
 		[self setAutoresizingMask:0];
-		[[self title] setStringValue:title];
 		
-		NSTextField *textField;
-		textField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 17)];
-		[textField setStringValue:title];
-		[textField setBezeled:NO];
-		[textField setDrawsBackground:NO];
-		[textField setEditable:NO];
-		[textField setSelectable:NO];
-		[self addSubview:textField];
+		// [[self title] setStringValue:title];
 		
-//		NSRect imageBounds = NSMakeRect(-50, 1, self.bounds.size.width+100, self.bounds.size.height-1);
-		
-		NSRect imageBounds = NSMakeRect(0, 30, mainWidth, mainHeight);
-		imageView = [[NSImageView alloc]initWithFrame:imageBounds];
-		[imageView setImageScaling:NSImageScaleProportionallyUpOrDown];
-		[[imageView image] setScalesWhenResized:YES];
-//		[imageView setBounds:self.bounds];
-		[imageView setImage:image];
-		
-		[self addSubview:imageView];
+		[self setUpTitleTextViewWithText:title];
+		[self setUpImageViewWith:image];
 		
 		[self setAcceptsTouchEvents:YES];
 		[[self window] makeFirstResponder:self];
 		
-		// bipanel
-		MenuItemBiPanelView *bipanel = [[MenuItemBiPanelView alloc] initWithWidth:mainWidth];
-		[self addSubview:bipanel];
+		// biPanel
+		biPanel = [[MenuItemBiPanelView alloc] initWithWidth:mainWidth];
+		biPanelHeight =30;
+		[self addSubview:biPanel];
+//		[self collapse];
 		
 		active = NO;
     }
@@ -64,6 +53,28 @@
 
 -(BOOL)acceptsFirstResponder{
     return YES;
+}
+
+- (void) setUpTitleTextViewWithText:(NSString*)title{
+	NSTextField *textField;
+	textField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 17)];
+	[textField setStringValue:title];
+	[textField setBezeled:NO];
+	[textField setDrawsBackground:NO];
+	[textField setEditable:NO];
+	[textField setSelectable:NO];
+	[self addSubview:textField];
+}
+
+- (void) setUpImageViewWith:(NSImage*)image{
+	NSRect imageBounds = NSMakeRect(0, 0, mainWidth, mainHeight);
+	imageView = [[NSImageView alloc]initWithFrame:imageBounds];
+	[imageView setImageScaling:NSImageScaleProportionallyUpOrDown];
+	[[imageView image] setScalesWhenResized:YES];
+	//		[imageView setBounds:self.bounds];
+	[imageView setImage:image];
+	
+	[self addSubview:imageView];
 }
 
 //- (BOOL)acceptsFirstMouse:(NSEvent *)theEvent
@@ -94,11 +105,12 @@
 
 - (void) mouseDown:(NSEvent *)theEvent {
 	active = !active;
+	[biPanel setState:active];
 	if(active){
-		[self expand];
+		//[self expand];
 		// [imageView setImage:[self tintImage:[NSColor colorWithSRGBRed:0.8 green:0.5 blue:0.5 alpha:0.3]]];
 	}else{
-		[self collapse];
+		//[self collapse];
 	}
 }
 
@@ -116,10 +128,31 @@
 
 - (void) expand {
 	// [self animateIntoSize: NSMakeSize(mainWidth, mainHeight*3)];
+	
+	[NSAnimationContext beginGrouping];
+	[[NSAnimationContext currentContext] setDuration:0.2f];
+	
+	
+	[[self animator]setFrameSize:NSMakeSize(mainWidth, mainHeight+biPanelHeight)];
+//	[imageView setFrameOrigin:NSMakePoint(imageView.frame.origin.x, imageView.frame.origin.y+biPanelHeight)];
+	[NSAnimationContext endGrouping];
+	[self setNeedsDisplay:YES];
+//	[imageView setFrame:NSMakeRect(0, 30, mainWidth, mainHeight)];
+
 }
 
 - (void) collapse {
-	// [self animateIntoSize: NSMakeSize(mainWidth, mainHeight)];
+
+	[imageView setFrame:NSMakeRect(0, 0, mainWidth, mainHeight)];
+	[NSAnimationContext beginGrouping];
+	[[NSAnimationContext currentContext] setDuration:0.2f];
+	
+//	[[self animator]setFrameSize:NSMakeSize(mainWidth, mainHeight-30)];
+	[[self animator]setFrame:originalFrame];
+	
+	
+	[NSAnimationContext endGrouping];
+	[self setNeedsDisplay:YES];
 }
 
 - (void) animateIntoSize: (NSSize)size {
@@ -146,11 +179,11 @@
 	[NSBezierPath strokeRect:bounds];
 	
 	if (active) {
-		[[NSColor colorWithSRGBRed:0.8 green:0.5 blue:0.5 alpha:0.3] set];
+	//	[[NSColor colorWithSRGBRed:0.8 green:0.5 blue:0.5 alpha:0.3] set];
 	}else{
-		[[NSColor clearColor]set];
+		//[[NSColor clearColor]set];
 	}
-	
+	[[NSColor clearColor]set];
 	[NSBezierPath fillRect:bounds];
 	
     // Drawing code here.
